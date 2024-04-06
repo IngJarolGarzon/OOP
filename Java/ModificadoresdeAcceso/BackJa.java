@@ -1,20 +1,38 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
 package backja;
 
-/**
- *
- * @author mpaul
- */
-public class BackJa {
+//modificadores de acceso --Getter(obtener)/ Seter (asignar)
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
+public class BankJa{
+    private CheckingAccount accountOne; // Check... Clase y account.. atributos
+    private CheckingAccount accountTwo;
+
+    public BankJa(){
+        accountOne = new CheckingAccount("Zeus", 1000, "1");
+        accountTwo = new CheckingAccount("Hades", 200, "2");
+
     }
-    
+
+    public static void main(String [] args){
+        BankJa bankOfGods = new BankJa();  //objeto en este caso 
+        System.out.println("Saldo actual:" + " " + bankOfGods.accountOne.getBalance() ); //imprime 100 por el balance establecido arriba
+        // bankOfGods.accountOne.setBalance(5000); //remplaza el valor establecido antes. (Como si se borrara el 1000 de inputBalance)
+        // System.out.println(bankOfGods.accountOne.getBalance());
+        // System.out.println(bankOfGods.accountOne.getMonthlyInterest()); //interes
+        
+       
+        bankOfGods.accountOne.consignar(1000); 
+        System.out.println("Su saldo actual es de: "+ bankOfGods.accountOne.getBalance());
+        bankOfGods.accountOne.consignar(50); 
+        System.out.println("Su saldo actual es de: "+ bankOfGods.accountOne.getBalance());
+        bankOfGods.accountOne.consignar(10000);
+        System.out.println("Su saldo actual es de: "+ bankOfGods.accountOne.getBalance());
+        
+        bankOfGods.accountOne.retirar(5000);
+        System.out.println("Su saldo actual es de: " + bankOfGods.accountOne.getBalance());
+        bankOfGods.accountOne.retirar(50);
+        System.out.println("Su saldo actual es de: " + bankOfGods.accountOne.getBalance());
+        bankOfGods.accountOne.retirar(300);
+        System.out.println("Su saldo actual es de: " + bankOfGods.accountOne.getBalance());
+
+        }
 }
